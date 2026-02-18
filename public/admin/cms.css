@@ -1,0 +1,51 @@
+/* CMS Preview Styles */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --background: #050505;
+    --foreground: #ffffff;
+    --primary: #70A762;
+    --secondary: #8E9BAB;
+    --muted: #1F1F1F;
+    --accent: #E0E0E0;
+}
+
+body {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+    font-family: 'Exo 2', sans-serif !important;
+    padding: 20px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--foreground) !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.02em !important;
+    font-weight: 800 !important;
+}
+
+p {
+    color: var(--secondary) !important;
+    line-height: 1.6 !important;
+}
+
+/* Primary Accents */
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.italic {
+    font-style: italic !important;
+}
+
+/* Industrial Grid Emulation */
+.preview-pane {
+    background-image: radial-gradient(var(--muted) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+}

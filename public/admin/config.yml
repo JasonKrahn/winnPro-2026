@@ -1,0 +1,94 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+publish_mode: editorial_workflow
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "content/pages/home.md"
+        fields:
+          - { label: "Template Key", name: "template", widget: "hidden", default: "HomePage" }
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title Part 1", name: "title1", widget: "string" }
+              - { label: "Title Part 2 (Italic)", name: "title2", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Services Section"
+            name: "services"
+            widget: "object"
+            fields:
+              - { label: "Title Part 1", name: "title1", widget: "string" }
+              - { label: "Title Part 2", name: "title2", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Services List", name: "list", widget: "list", field: { label: "Service", name: "service", widget: "string" } }
+          - label: "SEO Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Meta Title", name: "title", widget: "string" }
+              - { label: "Meta Description", name: "description", widget: "text" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Template Key", name: "template", widget: "hidden", default: "SinglePost" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Status", name: "status", widget: "select", options: ["Published", "Draft"] }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image" }
+      - { label: "Budget", name: "budget", widget: "string", required: false }
+      - { label: "Completed Date", name: "completed", widget: "string", required: false }
+      - { label: "Architect", name: "architect", widget: "string", required: false }
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
+        fields:
+          - { label: "Category", name: "category", widget: "relation", collection: "categories", search_fields: ["title"], value_field: "title", display_fields: ["title"] }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Meta"
+        name: "meta"
+        widget: "object"
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+
+  - name: "categories"
+    label: "Project Categories"
+    folder: "content/postCategories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Template Key", name: "template", widget: "hidden", default: "ProjectIndex" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image" }
+      - label: "Meta"
+        name: "meta"
+        widget: "object"
+        fields:
+          - { label: "No Index", name: "noindex", widget: "boolean", default: true }
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
