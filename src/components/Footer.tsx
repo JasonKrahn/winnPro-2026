@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
                     {/* Brand Info */}
                     <div className="flex flex-col gap-6 md:col-span-2">
-                        <Link href="/" className="flex items-center gap-2">
+                        <Link href="/" prefetch={false} className="flex items-center gap-2">
                             <img src="/logo.png" alt="WinnPro Logo" className="h-10 w-auto" />
                             <div className="flex flex-col font-black uppercase leading-none">
                                 <span className="text-xl tracking-tight text-white">WinnPro</span>
@@ -24,9 +24,9 @@ export default function Footer() {
                     <div className="flex flex-col gap-6">
                         <h3 className="text-xs font-black uppercase tracking-[0.3em] text-white">Navigation</h3>
                         <nav className="flex flex-col gap-3">
-                            <Link href="/projects" className="text-sm text-secondary hover:text-primary transition-colors">Projects</Link>
-                            <Link href="/contact" className="text-sm text-secondary hover:text-primary transition-colors">Contact</Link>
-                            <Link href="/admin" className="text-sm text-secondary hover:text-primary transition-colors">Admin Login</Link>
+                            <Link href="/projects" prefetch={false} className="text-sm text-secondary hover:text-primary transition-colors">Projects</Link>
+                            <Link href="/contact" prefetch={false} className="text-sm text-secondary hover:text-primary transition-colors">Contact</Link>
+                            <Link href="/admin" prefetch={false} className="text-sm text-secondary hover:text-primary transition-colors">Admin Login</Link>
                         </nav>
                     </div>
 

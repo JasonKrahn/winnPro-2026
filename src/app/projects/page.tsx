@@ -37,6 +37,7 @@ export default async function ProjectsPage({ searchParams }: Props) {
                     <div className="mb-12 flex flex-wrap gap-4">
                         <Link
                             href="/projects"
+                            prefetch={false}
                             className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest transition-all ${!category ? 'bg-primary text-background' : 'industrial-border text-secondary hover:text-white hover:border-white'}`}
                         >
                             All
@@ -47,6 +48,7 @@ export default async function ProjectsPage({ searchParams }: Props) {
                                 <Link
                                     key={cat.slug}
                                     href={`/projects?category=${cat.slug}`}
+                                    prefetch={false}
                                     className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest transition-all ${isActive ? 'bg-primary text-background' : 'industrial-border text-secondary hover:text-white hover:border-white'}`}
                                 >
                                     {cat.title}

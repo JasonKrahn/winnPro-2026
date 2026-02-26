@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-muted bg-background/80 backdrop-blur-md overflow-x-hidden">
             <div className="container mx-auto flex h-20 items-center justify-between px-6">
-                <Link href="/" className="flex items-center gap-2">
+                <Link href="/" prefetch={false} className="flex items-center gap-2">
                     <img src="/logo.png" alt="WinnPro Logo" className="h-10 w-auto" />
                     <div className="hidden flex-col font-black uppercase leading-none md:flex">
                         <span className="text-xl tracking-tight text-white group-hover:text-primary transition-colors">WinnPro</span>
@@ -14,10 +14,10 @@ export default function Header() {
                 </Link>
 
                 <nav className="hidden items-center gap-8 md:flex">
-                    <Link href="/projects" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                    <Link href="/projects" prefetch={false} className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                         Projects
                     </Link>
-                    <Link href="/contact" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                    <Link href="/contact" prefetch={false} className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                         Contact
                     </Link>
                 </nav>
@@ -25,6 +25,7 @@ export default function Header() {
                 <div className="flex items-center gap-4">
                     <Link
                         href="/contact"
+                        prefetch={false}
                         className="hidden bg-primary px-6 py-2 text-xs font-black uppercase tracking-widest text-background hover:bg-white transition-all md:block industrial-border"
                     >
                         Get a Quote

@@ -25,7 +25,7 @@ export default function Button({ children, href, onClick, variant = "primary", c
 
     if (href) {
         return (
-            <Link href={href}>
+            <Link href={href} prefetch={false}>
                 <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

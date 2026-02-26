@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             whileHover={{ y: -10 }}
             className="group relative overflow-hidden industrial-border bg-muted"
         >
-            <Link href={`/projects/${categorySlug}/${project.slug}`}>
+            <Link href={`/projects/${categorySlug}/${project.slug}`} prefetch={false}>
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
                         src={project.featuredImage}
