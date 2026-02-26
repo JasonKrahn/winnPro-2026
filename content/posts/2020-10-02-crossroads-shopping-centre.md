@@ -3,7 +3,7 @@ template: SinglePost
 title: Crossroads Village Shopping Centre
 status: Published
 date: 2020-10-02
-featuredImage: https://ucarecdn.com/2e7a00e6-a97c-48f4-b5d4-d3d09fab9244/
+featuredImage: /images/2e7a00e6-a97c-48f4-b5d4-d3d09fab9244.jpg
 budget: $1,526,000
 completed: 2019-08
 architect: Raymond S.C Wan, Architect Inc.
@@ -12,13 +12,13 @@ categories:
   - category: Shopping Centres
   - category: Retail
 gallery:
-  - image: https://ucarecdn.com/f24a4433-5662-46da-9f45-97184a369a94/
+  - image: /images/f24a4433-5662-46da-9f45-97184a369a94.jpg
     alt: Foundation
     title: Foundation
-  - image: https://ucarecdn.com/de50e4dc-5d31-4aae-ad7c-716331bfe399/
+  - image: /images/de50e4dc-5d31-4aae-ad7c-716331bfe399.jpg
     alt: Inside
     title: Inside
-  - image: https://ucarecdn.com/9c8acab8-4ac8-454d-9ed5-ae635c77a090/
+  - image: /images/9c8acab8-4ac8-454d-9ed5-ae635c77a090.jpg
     alt: Completed Exterior
     title: Completed Exterior
 meta:

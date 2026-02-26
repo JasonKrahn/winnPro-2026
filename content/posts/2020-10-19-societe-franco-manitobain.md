@@ -3,7 +3,7 @@ template: SinglePost
 title: Societe Franco-Manitobain
 status: Published
 date: 2020-05-19
-featuredImage: https://ucarecdn.com/3c1fab6c-4202-4c67-b6c7-61b1967d119b/
+featuredImage: /images/3c1fab6c-4202-4c67-b6c7-61b1967d119b.jpg
 budget: $250,000
 completed: 2010-10
 architect: Prairie Architects Inc.
@@ -11,13 +11,13 @@ categories:
   - category: Commercial Renovations
   - category: Office Buildings
 gallery:
-  - image: https://ucarecdn.com/36facdc2-07cb-4d60-8b6b-3d372cf0ec99/
+  - image: /images/36facdc2-07cb-4d60-8b6b-3d372cf0ec99.jpg
     alt: Mid Renovation
     title: Mid Renovation
-  - image: https://ucarecdn.com/3c43df21-1c1d-4424-bc84-e4c9d093c3a6/
+  - image: /images/3c43df21-1c1d-4424-bc84-e4c9d093c3a6.jpg
     alt: Entrance
     title: Entrance
-  - image: https://ucarecdn.com/86f707b6-edec-4045-9eb7-dd464232de4d/
+  - image: /images/86f707b6-edec-4045-9eb7-dd464232de4d.jpg
     alt: Hallway
     title: Hallway
 meta:

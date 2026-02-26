@@ -3,7 +3,7 @@ template: SinglePost
 title: Mark's West Edmonton Mall
 status: Published
 date: 2020-10-19
-featuredImage: https://ucarecdn.com/79ba8517-8823-47d5-a8aa-78bdd2de1a9a/-/crop/975x649/13,44/-/preview/-/enhance/18/
+featuredImage: /images/79ba8517-8823-47d5-a8aa-78bdd2de1a9a.jpg
 budget: $1,000,000
 completed: 2015-10
 architect: Mark's
@@ -12,13 +12,13 @@ categories:
   - category: Shopping Centres
   - category: Commercial Renovations
 gallery:
-  - image: https://ucarecdn.com/4a70cce5-f956-43df-8953-ece9f4b92e31/
+  - image: /images/4a70cce5-f956-43df-8953-ece9f4b92e31.jpg
     alt: Mark's interior under construction
     title: Initial Layout
-  - image: https://ucarecdn.com/2c1b4991-786c-4a7b-8dcd-23c2acc6b182/
+  - image: /images/2c1b4991-786c-4a7b-8dcd-23c2acc6b182.jpg
     alt: Inside Mark's during construction at West Edmonton Mall
     title: Mid Construction
-  - image: https://ucarecdn.com/0c2e7a1b-b150-426e-9136-f97c30915d9c/
+  - image: /images/0c2e7a1b-b150-426e-9136-f97c30915d9c.jpg
     alt: Mark's completed exterior entrance
     title: Mark's Entrance
 meta:

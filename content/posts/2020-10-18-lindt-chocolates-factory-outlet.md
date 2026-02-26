@@ -3,7 +3,7 @@ template: SinglePost
 title: Lindt Chocolates Factory Outlet
 status: Published
 date: 2020-10-17
-featuredImage: https://ucarecdn.com/b48672c9-7362-4375-b366-63d3497588ac/
+featuredImage: /images/b48672c9-7362-4375-b366-63d3497588ac.jpg
 budget: $165,000
 completed: 2017-02
 architect: DePM Inc.
@@ -11,13 +11,13 @@ categories:
   - category: Retail
   - category: Shopping Centres
 gallery:
-  - image: https://ucarecdn.com/6a17c9b0-25fb-4088-a318-42075f9144d7/
+  - image: /images/6a17c9b0-25fb-4088-a318-42075f9144d7.jpg
     alt: Interior Lighting
     title: Interior Lighting
-  - image: https://ucarecdn.com/44149ce4-cddf-4bfb-b3dc-c6ed552cd42b/
+  - image: /images/44149ce4-cddf-4bfb-b3dc-c6ed552cd42b.jpg
     alt: Lindt Chocolate Completed Interior
     title: Completed Interior
-  - image: https://ucarecdn.com/69688d50-e914-4fcd-b789-bc7e4aec14db/
+  - image: /images/69688d50-e914-4fcd-b789-bc7e4aec14db.jpg
     alt: Lindt Chocolate Shelving
     title: Shelving
 meta:

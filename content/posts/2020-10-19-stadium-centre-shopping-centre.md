@@ -3,7 +3,7 @@ template: SinglePost
 title: Stadium Centre – Shopping Centre
 status: Published
 date: 2020-10-19
-featuredImage: https://ucarecdn.com/27c33ffd-09cb-4cc9-9723-6a52db83f8b7/
+featuredImage: /images/27c33ffd-09cb-4cc9-9723-6a52db83f8b7.jpg
 budget: $4,200,000
 completed: 2015-10
 architect: Raymond S.C. Wan, Architect Inc.
@@ -11,13 +11,13 @@ categories:
   - category: Retail
   - category: Shopping Centres
 gallery:
-  - image: https://ucarecdn.com/33f6394d-edd4-46ee-b4c1-4322919d2054/
+  - image: /images/33f6394d-edd4-46ee-b4c1-4322919d2054.jpg
     alt: Framing
     title: Framing
-  - image: https://ucarecdn.com/7fb1fd52-0251-47ae-9b42-fb45776b9c9d/
+  - image: /images/7fb1fd52-0251-47ae-9b42-fb45776b9c9d.jpg
     alt: Trenching
     title: Trenching
-  - image: https://ucarecdn.com/6d886bc6-b8c9-4b3b-8365-8a7369afba05/
+  - image: /images/6d886bc6-b8c9-4b3b-8365-8a7369afba05.jpg
     alt: Finished
     title: Finished
 meta:

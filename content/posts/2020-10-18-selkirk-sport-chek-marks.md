@@ -3,7 +3,7 @@ template: SinglePost
 title: Selkirk Sport Chek & Mark’s
 status: Published
 date: 2020-10-17
-featuredImage: https://ucarecdn.com/90911c69-2ddb-4acb-ac81-9f12276cc6db/-/crop/1256x677/138,0/-/preview/-/enhance/39/
+featuredImage: /images/90911c69-2ddb-4acb-ac81-9f12276cc6db.jpg
 budget: $3,000,000
 completed: 2015-11
 architect: Nejmark Architect
@@ -11,13 +11,13 @@ categories:
   - category: Retail
   - category: Shopping Centres
 gallery:
-  - image: https://ucarecdn.com/8425a684-01e1-4802-abb2-cb5d91229654/
+  - image: /images/8425a684-01e1-4802-abb2-cb5d91229654.jpg
     alt: Exterior foundational construction and framing for Mark's Work Warehouse
     title: Building Framing
-  - image: https://ucarecdn.com/258d8d1d-d585-43d5-87f6-e6224cf240dd/
+  - image: /images/258d8d1d-d585-43d5-87f6-e6224cf240dd.jpg
     alt: Inside Setup for Mark's Work Warehouse
     title: Inside Setup
-  - image: https://ucarecdn.com/ed1b7fd3-acf3-4101-b124-ba057fde3d5d/
+  - image: /images/ed1b7fd3-acf3-4101-b124-ba057fde3d5d.jpg
     alt: Sport Chek finished exterior
     title: Completed Structure
 meta:

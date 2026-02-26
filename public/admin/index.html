@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager | WinnPro</title>
   <link rel="icon" type="image/ico" href="/favicon.ico" />
-  <link href="./config.yml" type="text/yaml" rel="cms-config-url" />
+  <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -14,6 +15,128 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     CMS.registerPreviewStyle("/admin/cms.css");
+
+    // Helper for rendering Markdown
+    const Markdown = ({ content }) => h('div', { className: 'markdown-preview prose prose-invert max-w-none text-secondary leading-loose' },
+      typeof content === 'string' ? content : (content && content.props ? content.props.value : content)
+    );
+
+    // SinglePost Preview
+    const SinglePostPreview = createClass({
+      render: function () {
+        const entry = this.props.entry;
+        const getAsset = this.props.getAsset;
+        const title = entry.getIn(['data', 'title']);
+        const image = entry.getIn(['data', 'featuredImage']);
+        const budget = entry.getIn(['data', 'budget']);
+        const completed = entry.getIn(['data', 'completed']);
+        const architect = entry.getIn(['data', 'architect']);
+        const body = this.props.widgetFor('body');
+        const gallery = entry.getIn(['data', 'gallery']) || [];
+
+        return h('div', { className: 'preview-pane' },
+          h('div', { className: 'hero-wrapper' },
+            image && h('img', { className: 'hero-img', src: getAsset(image).toString() }),
+            h('div', { className: 'hero-gradient' }),
+            h('div', { className: 'hero-content' },
+              h('h1', { className: 'font-black' }, title)
+            )
+          ),
+          h('div', { className: 'container py-20 bg-background' },
+            h('div', { className: 'grid lg:grid-cols-3 gap-16' },
+              h('div', { className: 'lg:col-span-2' },
+                h('div', { className: 'mb-12 font-bold text-primary tracking-widest uppercase' }, 'Project Details'),
+                h('div', { className: 'text-secondary mb-12' }, h(Markdown, { content: body }))
+              ),
+              h('div', { className: 'industrial-border p-8 bg-muted text-secondary h-fit tracking-tight' },
+                budget && h('div', { className: 'mb-6 border-b border-background pb-4' },
+                  h('strong', { className: 'text-white block mb-1 uppercase font-bold text-sm tracking-widest' }, 'Estimated Budget'),
+                  h('span', {}, budget)
+                ),
+                completed && h('div', { className: 'mb-6 border-b border-background pb-4' },
+                  h('strong', { className: 'text-white block mb-1 uppercase font-bold text-sm tracking-widest' }, 'Completed'),
+                  h('span', {}, completed)
+                ),
+                architect && h('div', {},
+                  h('strong', { className: 'text-white block mb-1 uppercase font-bold text-sm tracking-widest' }, 'Architect / Designer'),
+                  h('span', {}, architect)
+                )
+              )
+            ),
+            gallery.size > 0 && h('div', { className: 'mt-12' },
+              h('h3', { className: 'mb-8 font-black uppercase' }, 'Gallery'),
+              h('div', { className: 'gallery-grid' },
+                gallery.map((img, index) => {
+                  const src = getAsset(img.get('image'));
+                  return src ? h('div', { key: index, className: 'gallery-item' },
+                    h('img', { className: 'gallery-img', src: src.toString() })
+                  ) : null;
+                })
+              )
+            )
+          )
+        );
+      }
+    });
+
+    // HomePage Preview
+    const HomePagePreview = createClass({
+      render: function () {
+        const entry = this.props.entry;
+        const hero = entry.getIn(['data', 'hero']);
+        const services = entry.getIn(['data', 'services']);
+
+        return h('div', { className: 'preview-pane' },
+          h('div', { className: 'hero-wrapper mb-12' },
+            h('div', { className: 'hero-gradient' }),
+            hero && h('div', { className: 'hero-content' },
+              h('div', { className: 'text-primary font-bold tracking-widest uppercase mb-4' }, hero.get('eyebrow')),
+              h('h1', { className: 'font-black' }, hero.get('title1'), ' ', h('span', { className: 'italic text-secondary' }, hero.get('title2'))),
+              h('p', { className: 'mt-4 max-w-2xl' }, hero.get('description'))
+            )
+          ),
+          services && h('div', { className: 'container bg-muted p-8 industrial-border' },
+            h('h2', { className: 'font-black uppercase mb-4' }, services.get('title1'), ' ', h('span', { className: 'text-primary' }, services.get('title2'))),
+            h('p', { className: 'text-secondary mb-8' }, services.get('subtitle')),
+            h('div', { className: 'grid md:grid-cols-2 gap-4' },
+              (services.get('list') || []).map((item, index) =>
+                h('div', { key: index, className: 'flex items-center gap-4 text-secondary' },
+                  h('span', { className: 'text-primary font-black' }, String(index + 1).padStart(2, '0')),
+                  h('span', { className: 'tracking-widest font-bold uppercase' }, item)
+                )
+              )
+            )
+          )
+        );
+      }
+    });
+
+    // ProjectIndex Preview (Categories)
+    const ProjectIndexPreview = createClass({
+      render: function () {
+        const entry = this.props.entry;
+        const getAsset = this.props.getAsset;
+        const title = entry.getIn(['data', 'title']);
+        const subtitle = entry.getIn(['data', 'subtitle']);
+        const image = entry.getIn(['data', 'featuredImage']);
+
+        return h('div', { className: 'preview-pane' },
+          h('div', { className: 'container py-20' },
+            h('div', { className: 'category-card max-w-3xl' },
+              image && h('img', { className: 'gallery-img', src: getAsset(image).toString() }),
+              h('div', { className: 'absolute inset-0 bg-background/80 flex flex-col justify-end p-8', style: { backgroundColor: 'rgba(5,5,5,0.7)', position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem' } },
+                h('h2', { className: 'text-3xl font-black text-white uppercase mb-2' }, title),
+                h('p', { className: 'text-primary font-bold tracking-widest uppercase' }, subtitle)
+              )
+            )
+          )
+        );
+      }
+    });
+
+    CMS.registerPreviewTemplate("projects", SinglePostPreview);
+    CMS.registerPreviewTemplate("home", HomePagePreview);
+    CMS.registerPreviewTemplate("categories", ProjectIndexPreview);
   </script>
 </body>
 

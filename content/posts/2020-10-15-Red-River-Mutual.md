@@ -3,7 +3,7 @@ template: SinglePost
 title: Red River Mutual Regional Office
 status: Published
 date: 2020-10-15
-featuredImage: https://ucarecdn.com/a1566fd4-4cc2-40de-8c37-8142126a7335/
+featuredImage: /images/a1566fd4-4cc2-40de-8c37-8142126a7335.jpg
 budget: $2,845,000
 completed: 2013-10
 architect: Raymond S.C Wan, Architect Inc.
@@ -12,12 +12,12 @@ categories:
   - category: Office Buildings
 gallery:
   - alt: Exterior Framing
-    image: https://ucarecdn.com/c68f1a4d-ce56-4ef3-bed0-b2ba84a8a3b5/
+    image: /images/c68f1a4d-ce56-4ef3-bed0-b2ba84a8a3b5.jpg
     title: Exterior Framing
-  - image: https://ucarecdn.com/43c2c809-c926-4fc5-a36a-622ed021dce0/
+  - image: /images/43c2c809-c926-4fc5-a36a-622ed021dce0.jpg
     alt: A Look Inside
     title: A Look Inside
-  - image: https://ucarecdn.com/eedbb71e-a62e-4f26-a68d-11c861934560/
+  - image: /images/eedbb71e-a62e-4f26-a68d-11c861934560.jpg
     alt: Exterior Finishing
     title: Exterior Finishing
 meta:

@@ -23,7 +23,7 @@ export default function Home() {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="https://ucarecdn.com/c5e798e8-f3b7-4df5-b89d-974402eb980c/-/progressive/yes/-/format/auto/-/resize/2000x/"
+              src="/images/c5e798e8-f3b7-4df5-b89d-974402eb980c.jpg"
               alt="Industrial Construction Background"
               fill
               className="object-cover opacity-60 grayscale-[30%]"
@@ -106,7 +106,7 @@ export default function Home() {
               </div>
               <div className="relative industrial-border overflow-hidden group">
                 <Image
-                  src="https://ucarecdn.com/556c37b7-9fb2-4808-a10b-cd4be7234d75/-/crop/1500x817/0,0/-/preview/-/enhance/76/"
+                  src="/images/556c37b7-9fb2-4808-a10b-cd4be7234d75.jpg"
                   alt="WinnPro Project - Mastermind Toys"
                   fill
                   className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"

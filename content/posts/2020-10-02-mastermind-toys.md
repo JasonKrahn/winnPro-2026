@@ -3,7 +3,7 @@ template: SinglePost
 title: Mastermind Toys
 status: Published
 date: 2020-10-02
-featuredImage: https://ucarecdn.com/556c37b7-9fb2-4808-a10b-cd4be7234d75/-/crop/1500x817/0,0/-/preview/-/enhance/76/
+featuredImage: /images/556c37b7-9fb2-4808-a10b-cd4be7234d75.jpg
 budget: 1,400,000
 completed: 2017-07
 architect: Raymond S.C. Wan, Architect Inc.
@@ -11,13 +11,13 @@ categories:
   - category: Retail
   - category: Shopping Centres
 gallery:
-  - image: https://ucarecdn.com/4f5f5b6a-8082-468c-85a6-b45fe1db94ff/
+  - image: /images/12bddef2-da18-4529-aeef-8f63792b187a.jpg
     alt: Building Framing
     title: Frameing
-  - image: https://ucarecdn.com/66faf357-eb6a-4d38-9897-dc5831805984/-/crop/1206x660/160,166/-/preview/
+  - image: /images/66faf357-eb6a-4d38-9897-dc5831805984.jpg
     alt: Exterior  Finishing Work
     title: Exterior  Work
-  - image: https://ucarecdn.com/68a13a08-11fe-40fe-ba31-fffd0d1cff6d/
+  - image: /images/68a13a08-11fe-40fe-ba31-fffd0d1cff6d.jpg
     alt: Final Touches and Paint
     title: Final Touches
 meta:

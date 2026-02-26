@@ -3,7 +3,7 @@ template: SinglePost
 title: Jollibee Stadium Centre
 status: Published
 date: 2018-01-16
-featuredImage: https://ucarecdn.com/fa563d5b-2a5d-4854-978b-dcd1867c8ff4/-/crop/2309x1453/0,279/-/preview/
+featuredImage: /images/fa563d5b-2a5d-4854-978b-dcd1867c8ff4.jpg
 budget: $1,200,000
 completed: 2016-02-01
 architect: Raymond S.C Wan, Architect Inc.
@@ -11,13 +11,13 @@ categories:
   - category: Restaurants
 gallery:
   - alt: Exterior Construction of Jollibee Northgate
-    image: https://ucarecdn.com/40c63f6b-71dd-4c6f-9ce9-089e549e1278/-/preview/-/enhance/37/
+    image: /images/40c63f6b-71dd-4c6f-9ce9-089e549e1278.jpg
     title: Exterior Construction
   - alt: Jollibee Kitchen appliance installation
-    image: https://ucarecdn.com/9f43d428-e938-402b-ac50-2938aec0e4ac/
+    image: /images/9f43d428-e938-402b-ac50-2938aec0e4ac.jpg
     title: Appliance Installation
   - alt: Jollibee Completed Interior
-    image: https://ucarecdn.com/87258cc3-beb6-4d74-87b8-78d82bad64f6/
+    image: /images/87258cc3-beb6-4d74-87b8-78d82bad64f6.jpg
     title: Completed Interior
 meta:
   description: Canada’s first Jollibee has finally landed here in Winnipeg and

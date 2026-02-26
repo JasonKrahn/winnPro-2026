@@ -3,7 +3,7 @@ template: SinglePost
 title: Raymond S.C. Wan Architect – Office
 status: Published
 date: 2020-10-19
-featuredImage: https://ucarecdn.com/2f1bed75-2aff-4451-86c6-7fca3376d0a7/
+featuredImage: /images/2f1bed75-2aff-4451-86c6-7fca3376d0a7.jpg
 budget: $910,000
 completed: 2012-06
 architect: Raymond S.C. Wan, Architect Inc.
@@ -11,13 +11,13 @@ categories:
   - category: Commercial Renovations
   - category: Office Buildings
 gallery:
-  - image: https://ucarecdn.com/4aa1a01c-a25f-4324-b881-0488e3cddce1/
+  - image: /images/4aa1a01c-a25f-4324-b881-0488e3cddce1.jpg
     alt: Office Renovations
     title: Office Renovations
-  - image: https://ucarecdn.com/e68f39dd-0850-40b6-a84b-369f88db11a9/
+  - image: /images/e68f39dd-0850-40b6-a84b-369f88db11a9.jpg
     alt: Inside
     title: Inside
-  - image: https://ucarecdn.com/7c96fe21-cac1-494b-bd73-f8691ac307fe/
+  - image: /images/7c96fe21-cac1-494b-bd73-f8691ac307fe.jpg
     alt: Common Area
     title: Common Area
 meta:

@@ -3,7 +3,7 @@ template: SinglePost
 title: MBLL Steinbach – Interior Renovations
 status: Published
 date: 2020-10-17
-featuredImage: https://ucarecdn.com/8882306a-de2e-484c-a4d1-1188a3a570a0/
+featuredImage: /images/8882306a-de2e-484c-a4d1-1188a3a570a0.jpg
 budget: $700,000
 completed: 2014-06
 architect: Raymond S.C. Wan, Architect Inc.
@@ -11,13 +11,13 @@ categories:
   - category: Retail
   - category: Commercial Renovations
 gallery:
-  - image: https://ucarecdn.com/cc3360ae-1251-4ca4-869e-d89b11e54d6f/
+  - image: /images/cc3360ae-1251-4ca4-869e-d89b11e54d6f.jpg
     alt: Checkout MBLL Steinbach
     title: Checkout
-  - image: https://ucarecdn.com/95f1be7d-e67e-43e5-91c5-e8b94a93edde/
+  - image: /images/95f1be7d-e67e-43e5-91c5-e8b94a93edde.jpg
     alt: Interior of the MBLL Steinbach
     title: Interior
-  - image: https://ucarecdn.com/bc23f72a-072c-489e-9563-0ca6fe047048/
+  - image: /images/bc23f72a-072c-489e-9563-0ca6fe047048.jpg
     alt: Interior Shelving MLBB Steinbach
     title: Interior Shelving
 meta:
