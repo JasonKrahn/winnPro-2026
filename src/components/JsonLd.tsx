@@ -1,27 +1,44 @@
 import { LocalBusiness, WithContext } from 'schema-dts';
+import { getSiteSettings } from '@/lib/content';
 
 export default function JsonLd() {
+    const settings = getSiteSettings();
+
     const schema: WithContext<LocalBusiness> = {
         '@context': 'https://schema.org',
-        '@type': 'ConstructionBusiness' as any,
+        '@type': ['ConstructionBusiness', 'GeneralContractor', 'LocalBusiness'] as any,
         name: 'WinnPro Construction',
         image: 'https://winnproconstruction.ca/logo.png',
         '@id': 'https://winnproconstruction.ca',
         url: 'https://winnproconstruction.ca',
-        telephone: '',
+        telephone: settings?.phone || '',
+        priceRange: '$$$$',
         address: {
             '@type': 'PostalAddress',
-            streetAddress: '',
-            addressLocality: 'Winnipeg',
-            addressRegion: 'MB',
-            postalCode: '',
-            addressCountry: 'CA',
+            streetAddress: settings?.streetAddress || '',
+            addressLocality: settings?.city || 'Winnipeg',
+            addressRegion: settings?.region || 'MB',
+            postalCode: settings?.postalCode || '',
+            addressCountry: settings?.country || 'CA',
         },
         geo: {
             '@type': 'GeoCoordinates',
             latitude: 49.8951,
             longitude: -97.1384,
         },
+        areaServed: {
+            '@type': 'City',
+            name: settings?.city || 'Winnipeg',
+            '@id': 'https://en.wikipedia.org/wiki/Winnipeg'
+        },
+        knowsAbout: [
+            'Commercial Construction',
+            'Industrial Retrofits',
+            'Retail Space Construction',
+            'Office Building Development',
+            'General Contracting',
+            'Tenant Improvements'
+        ],
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: [
@@ -34,11 +51,8 @@ export default function JsonLd() {
             opens: '08:00',
             closes: '17:00',
         },
-        sameAs: [
-            // Add social links here
-        ],
-        areaServed: 'Winnipeg',
-        description: "Winnipeg's premier commercial construction contractors. High-performance, industrial-grade building and renovations.",
+        sameAs: [],
+        description: settings?.description || "Winnipeg's premier commercial construction contractors.",
     };
 
     return (

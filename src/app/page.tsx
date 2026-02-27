@@ -26,12 +26,13 @@ export default function Home() {
               src="/images/c5e798e8-f3b7-4df5-b89d-974402eb980c.jpg"
               alt="Industrial Construction Background"
               fill
-              className="object-cover opacity-60 grayscale-[30%]"
+              sizes="100vw"
+              className="object-cover opacity-75 grayscale-[45%]"
               priority
             />
             {/* Dialed back gradient for better visibility */}
             <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
-            <div className="absolute inset-0 industrial-grid opacity-20" />
+            <div className="absolute inset-0 industrial-grid opacity-40" />
           </div>
 
           <Container className="relative z-10">
@@ -51,7 +52,7 @@ export default function Home() {
                   View Our Projects
                 </Button>
                 <Button href="/contact" variant="outline">
-                  Get a Quote
+                  Contact Us
                 </Button>
               </div>
             </div>
@@ -106,15 +107,14 @@ export default function Home() {
               </div>
               <div className="relative industrial-border overflow-hidden group">
                 <Image
-                  src="/images/556c37b7-9fb2-4808-a10b-cd4be7234d75.jpg"
-                  alt="WinnPro Project - Mastermind Toys"
+                  src="/images/27c33ffd-09cb-4cc9-9723-6a52db83f8b7.jpg"
+                  alt="WinnPro Project - Winnipeg Credit Union"
                   fill
-                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                  <div className="text-center">
-                    <span className="text-6xl font-black text-white/20 uppercase tracking-[0.2em]">Quality</span>
-                  </div>
+
                 </div>
               </div>
             </div>

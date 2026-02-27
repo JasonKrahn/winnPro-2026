@@ -91,3 +91,22 @@ export function getPageData(pageName: string) {
     const { data } = matter(fileContents);
     return data;
 }
+
+export interface SiteSettings {
+    title: string;
+    description: string;
+    phone?: string;
+    email?: string;
+    streetAddress?: string;
+    city: string;
+    region: string;
+    postalCode?: string;
+    country: string;
+}
+
+export function getSiteSettings(): SiteSettings | null {
+    const fullPath = path.join(contentDirectory, 'settings', 'site.json');
+    if (!fs.existsSync(fullPath)) return null;
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    return JSON.parse(fileContents);
+}

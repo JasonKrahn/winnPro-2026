@@ -92,3 +92,20 @@ collections:
           - { label: "No Index", name: "noindex", widget: "boolean", default: true }
           - { label: "Meta Title", name: "title", widget: "string" }
           - { label: "Meta Description", name: "description", widget: "text" }
+
+  - name: "settings"
+    label: "Site Settings and SEO"
+    files:
+      - label: "Global Content Settings"
+        name: "global-settings"
+        file: "content/settings/site.json"
+        fields:
+          - { label: "Site Title (Meta)", name: "title", widget: "string", default: "WinnPro Construction | Winnipeg Commercial Contractors" }
+          - { label: "Site Description (Meta)", name: "description", widget: "text", default: "WinnPro Construction is a leading commercial and industrial general contractor in Winnipeg, Manitoba. Specializing in retail, office, and industrial retrofits." }
+          - { label: "Phone Number", name: "phone", widget: "string", required: false }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - { label: "Street Address", name: "streetAddress", widget: "string", required: false }
+          - { label: "City", name: "city", widget: "string", default: "Winnipeg" }
+          - { label: "Province/State", name: "region", widget: "string", default: "MB" }
+          - { label: "Postal Code", name: "postalCode", widget: "string", required: false }
+          - { label: "Country", name: "country", widget: "string", default: "CA" }

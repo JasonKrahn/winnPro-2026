@@ -1,24 +1,20 @@
 ---
 template: HomePage
 hero:
-  eyebrow: High Performance Construction
-  title1: Built For
-  title2: The North.
-  description: WinnPro Construction delivers industrial-grade quality and
-    precision building for Winnipeg's commercial landscape. From retail to
-    industrial retrofits, we build it right.
+  eyebrow: Winnipeg Commercial Contractors
+  title1: Building The
+  title2: Modern North.
+  description: WinnPro Construction is Winnipeg's leading commercial and industrial general contractor. We deliver high-performance, precision building for Manitoba's commercial landscape, spanning retail developments, office spaces, and complex industrial retrofits.
 services:
   title1: Winnipeg's
-  title2: Trusted Partner
-  subtitle: Local roots, industrial expertise. We understand the specific demands
-    of building in Manitoba.
+  title2: Trusted Construction Partner
+  subtitle: "Local roots backed by industrial-grade expertise. We understand the specific demands, rigorous codes, and performance standards required when building commercial real estate in Manitoba. Our specialized services include:"
   list:
-    - Commercial Renovations
-    - Industrial Retrofits
-    - Retail Space Construction
+    - Commercial & Retail Renovations
+    - Industrial Retrofits & Expansions
+    - Tenant Improvements (TI)
     - Office Building Development
 meta:
-  title: WinnPro Construction | Winnipeg Commercial Contractors
-  description: Winnipeg's premier commercial construction contractors.
-    High-performance, industrial-grade building and renovations.
+  title: WinnPro Construction | Winnipeg Commercial General Contractors
+  description: WinnPro Construction handles large-scale commercial, retail, and industrial construction projects in Winnipeg, Manitoba. Contact our general contracting team today.
 ---

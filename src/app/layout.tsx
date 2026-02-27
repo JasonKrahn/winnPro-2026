@@ -9,10 +9,42 @@ const exo2 = Exo_2({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
-  title: "WinnPro Construction | Winnipeg Commercial Contractors",
-  description: "Winnipeg's premier commercial construction contractors. High-performance, industrial-grade building and renovations.",
-};
+import { getSiteSettings } from "@/lib/content";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = getSiteSettings();
+
+  return {
+    metadataBase: new URL('https://winnproconstruction.ca'),
+    title: settings?.title || "WinnPro Construction | Winnipeg Commercial Contractors",
+    description: settings?.description || "WinnPro Construction is a leading commercial and industrial general contractor in Winnipeg.",
+    keywords: ["Winnipeg Commercial Construction", "Industrial Contractors Manitoba", "Retail Build-Outs", "General Contractor Winnipeg", "WinnPro"],
+    alternates: {
+      canonical: '/',
+    },
+    openGraph: {
+      title: settings?.title || 'WinnPro Construction | Expert Commercial Contractors',
+      description: settings?.description || "Winnipeg's top choice for high-performance commercial and industrial construction.",
+      url: 'https://winnproconstruction.ca',
+      siteName: 'WinnPro Construction',
+      images: [
+        {
+          url: '/logo.png',
+          width: 1200,
+          height: 630,
+          alt: 'WinnPro Construction Logo',
+        },
+      ],
+      locale: 'en_CA',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: settings?.title || 'WinnPro Construction',
+      description: settings?.description || 'Commercial & Industrial General Contractors in Winnipeg',
+    },
+  };
+}
 
 export default function RootLayout({
   children,

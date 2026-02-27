@@ -1,11 +1,21 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-muted bg-background/80 backdrop-blur-md overflow-x-hidden">
-            <div className="container mx-auto flex h-20 items-center justify-between px-6">
-                <Link href="/" prefetch={false} className="flex items-center gap-2">
+        <header className="sticky top-0 z-50 w-full border-b border-muted bg-background/80 backdrop-blur-md">
+            <div className="container mx-auto flex h-20 items-center justify-between px-6 relative z-50">
+                <Link href="/" prefetch={false} className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/logo.png" alt="WinnPro Logo" className="h-10 w-auto" />
                     <div className="hidden flex-col font-black uppercase leading-none md:flex">
                         <span className="text-xl tracking-tight text-white group-hover:text-primary transition-colors">WinnPro</span>
@@ -13,6 +23,7 @@ export default function Header() {
                     </div>
                 </Link>
 
+                {/* Desktop Navigation */}
                 <nav className="hidden items-center gap-8 md:flex">
                     <Link href="/projects" prefetch={false} className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                         Projects
@@ -28,14 +39,50 @@ export default function Header() {
                         prefetch={false}
                         className="hidden bg-primary px-6 py-2 text-xs font-black uppercase tracking-widest text-background hover:bg-white transition-all md:block industrial-border"
                     >
-                        Get a Quote
+                        Contact Us
                     </Link>
-                    {/* Mobile Menu Placeholder */}
-                    <button className="block md:hidden text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    {/* Mobile Menu Toggle Button */}
+                    <button
+                        className="block md:hidden text-white p-2 focus:outline-none"
+                        onClick={toggleMobileMenu}
+                        aria-label="Toggle mobile menu"
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </div>
+
+            {/* Mobile Navigation Menu */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden absolute top-20 left-0 w-full bg-background border-b border-muted shadow-lg z-40">
+                    <nav className="flex flex-col px-6 py-6 gap-6">
+                        <Link
+                            href="/projects"
+                            prefetch={false}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-lg font-bold uppercase tracking-widest text-white hover:text-primary transition-colors"
+                        >
+                            Projects
+                        </Link>
+                        <Link
+                            href="/contact"
+                            prefetch={false}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-lg font-bold uppercase tracking-widest text-white hover:text-primary transition-colors"
+                        >
+                            Contact
+                        </Link>
+                        <Link
+                            href="/contact"
+                            prefetch={false}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="inline-block self-start mt-4 bg-primary px-6 py-3 text-sm font-black uppercase tracking-widest text-background hover:bg-white transition-all industrial-border"
+                        >
+                            Contact Us
+                        </Link>
+                    </nav>
+                </div>
+            )}
         </header>
     );
 }
