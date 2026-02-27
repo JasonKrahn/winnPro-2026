@@ -3,7 +3,7 @@ template: HomePage
 hero:
   eyebrow: High Performance Construction
   title1: Built For
-  title2: The North. Booi
+  title2: The North.
   description: WinnPro Construction delivers industrial-grade quality and
     precision building for Winnipeg's commercial landscape. From retail to
     industrial retrofits, we build it right.
