@@ -26,6 +26,30 @@ collections:
               - { label: "Title Part 1", name: "title1", widget: "string" }
               - { label: "Title Part 2 (Italic)", name: "title2", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string", default: "About Us" }
+              - { label: "Title", name: "title", widget: "string", default: "Who We Are Today" }
+              - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Sectors Title", name: "sectorsTitle", widget: "string", default: "Commercial Industries We Serve" }
+              - { label: "Sectors", name: "sectors", widget: "list", field: { label: "Sector", name: "sector", widget: "string" } }
+              - { label: "What We Do Title", name: "whatWeDoTitle", widget: "string", default: "What We Do" }
+              - { label: "What We Do Body", name: "whatWeDoBody", widget: "markdown" }
+          - label: "Video Banner"
+            name: "videoBanner"
+            widget: "object"
+            fields:
+              - { label: "Published", name: "published", widget: "boolean", default: true }
+              - { label: "Video URL", name: "videoUrl", widget: "string" }
+              - { label: "Overlay Text", name: "overlayText", widget: "string" }
+          - label: "Service Offerings"
+            name: "serviceOfferings"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
           - label: "Services Section"
             name: "services"
             widget: "object"

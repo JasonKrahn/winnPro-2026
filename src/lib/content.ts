@@ -1,6 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { marked } from 'marked';
+
+export function markdownToHtml(markdown: string): string {
+    return marked.parse(markdown, { async: false }) as string;
+}
 
 const contentDirectory = path.join(process.cwd(), 'content');
 

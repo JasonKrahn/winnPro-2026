@@ -84,10 +84,14 @@
       render: function () {
         const entry = this.props.entry;
         const hero = entry.getIn(['data', 'hero']);
+        const about = entry.getIn(['data', 'about']);
+        const videoBanner = entry.getIn(['data', 'videoBanner']);
+        const serviceOfferings = entry.getIn(['data', 'serviceOfferings']);
         const services = entry.getIn(['data', 'services']);
 
-        return h('div', { className: 'preview-pane' },
-          h('div', { className: 'hero-wrapper mb-12' },
+        return h('div', { className: 'preview-pane bg-background' },
+          // Hero Section
+          h('div', { className: 'hero-wrapper mb-20' },
             h('div', { className: 'hero-gradient' }),
             hero && h('div', { className: 'hero-content' },
               h('div', { className: 'text-primary font-bold tracking-widest uppercase mb-4' }, hero.get('eyebrow')),
@@ -95,14 +99,59 @@
               h('p', { className: 'mt-4 max-w-2xl' }, hero.get('description'))
             )
           ),
-          services && h('div', { className: 'container bg-muted p-8 industrial-border' },
-            h('h2', { className: 'font-black uppercase mb-4' }, services.get('title1'), ' ', h('span', { className: 'text-primary' }, services.get('title2'))),
-            h('p', { className: 'text-secondary mb-8' }, services.get('subtitle')),
+
+          // About Us Section
+          about && h('div', { className: 'container py-12 mb-20' },
+            h('div', { className: 'grid grid-cols-1 lg:grid-cols-2 gap-16' },
+              h('div', {},
+                h('div', { className: 'text-primary tracking-[0.4em] uppercase font-black text-xs mb-2 underline decoration-primary decoration-4 underline-offset-8'}, about.get('eyebrow')),
+                h('h2', { className: 'text-4xl font-black uppercase tracking-tight text-white mb-8'}, about.get('title')),
+                h('div', { className: 'space-y-6 text-secondary text-lg leading-relaxed'}, about.get('body')),
+                h('div', { className: 'mt-10'}, 
+                  h('h3', { className: 'text-2xl font-black uppercase text-white mb-4'}, about.get('whatWeDoTitle')),
+                  h('p', { className: 'text-secondary italic text-lg leading-relaxed'}, about.get('whatWeDoBody'))
+                )
+              ),
+              h('div', {},
+                about.get('sectorsTitle') && h('h3', { className: 'text-2xl font-black uppercase tracking-tight text-white mb-6'}, about.get('sectorsTitle')),
+                h('div', { className: 'space-y-3'}, 
+                  (about.get('sectors') || []).map((sector, index) =>
+                    h('div', { key: index, className: 'flex items-center gap-4 border-l-4 border-primary bg-muted p-5 text-base font-bold uppercase tracking-widest text-white'}, sector)
+                  )
+                )
+              )
+            )
+          ),
+
+          // Video Banner Section
+          videoBanner && videoBanner.get('published') && h('div', { className: 'relative h-[600px] w-full overflow-hidden bg-black mb-20 flex items-center justify-center' },
+            h('div', { className: 'absolute inset-0 bg-background/50 z-10' }),
+            h('h2', { className: 'relative z-20 text-center text-5xl font-black uppercase leading-none tracking-tight text-white md:text-7xl lg:max-w-6xl' }, videoBanner.get('overlayText'))
+          ),
+
+          // Service Offerings Section
+          serviceOfferings && h('div', { className: 'container py-12 mb-20' },
+            h('div', { className: 'grid grid-cols-1 gap-4 md:grid-cols-2' },
+              (serviceOfferings || []).map((offering, index) =>
+                h('div', { key: index, className: 'industrial-border bg-muted p-8' },
+                  h('div', { className: 'flex flex-col gap-4' },
+                    h('h3', { className: 'text-xl font-black uppercase tracking-widest text-white'}, offering.get('title')),
+                    h('p', { className: 'font-bold tracking-tight text-secondary leading-relaxed'}, offering.get('description'))
+                  )
+                )
+              )
+            )
+          ),
+
+          // Services (Local Roots) Section
+          services && h('div', { className: 'container bg-muted p-8 industrial-border mb-20' },
+            h('h2', { className: 'font-black uppercase mb-4 text-3xl' }, services.get('title1'), ' ', h('span', { className: 'text-primary' }, services.get('title2'))),
+            h('p', { className: 'text-secondary text-lg mb-8' }, services.get('subtitle')),
             h('div', { className: 'grid md:grid-cols-2 gap-4' },
               (services.get('list') || []).map((item, index) =>
                 h('div', { key: index, className: 'flex items-center gap-4 text-secondary' },
                   h('span', { className: 'text-primary font-black' }, String(index + 1).padStart(2, '0')),
-                  h('span', { className: 'tracking-widest font-bold uppercase' }, item)
+                  h('span', { className: 'tracking-widest font-bold uppercase text-sm' }, item)
                 )
               )
             )

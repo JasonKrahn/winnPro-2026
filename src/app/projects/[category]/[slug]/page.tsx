@@ -1,4 +1,4 @@
-import { getProjectBySlug, getAllProjects } from "@/lib/content";
+import { getProjectBySlug, getAllProjects, markdownToHtml } from "@/lib/content";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                                 </h3>
                                 <div
                                     className="prose prose-invert max-w-none text-secondary leading-loose"
-                                    dangerouslySetInnerHTML={{ __html: project.content }}
+                                    dangerouslySetInnerHTML={{ __html: markdownToHtml(project.content) }}
                                 />
                             </div>
 

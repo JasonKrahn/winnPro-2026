@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
 import ProjectCard from "@/components/ProjectCard";
+import VideoBanner from "@/components/VideoBanner";
+import ServiceAccordion from "@/components/ServiceAccordion";
 import { getAllProjects, getPageData } from "@/lib/content";
 import Image from "next/image";
 
@@ -64,6 +66,62 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About Us Section */}
+        {homeData.about && (
+          <section className="bg-muted py-24 md:py-32 border-b border-muted">
+            <Container>
+              <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-widest text-primary mb-2 block">
+                    {homeData.about.eyebrow}
+                  </span>
+                  <h2 className="text-4xl font-black uppercase tracking-tight text-white md:text-5xl mb-8">
+                    {homeData.about.title}
+                  </h2>
+                  <div className="space-y-6 text-secondary text-lg leading-relaxed">
+                    {homeData.about.body.split("\n\n").map((paragraph: string, i: number) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
+
+                  {/* What We Do */}
+                  <div className="mt-10">
+                    <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-4">
+                      {homeData.about.whatWeDoTitle}
+                    </h3>
+                    <p className="text-secondary text-lg leading-relaxed italic">
+                      {homeData.about.whatWeDoBody}
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  {/* Sectors list */}
+                  <div className="mb-12">
+                    {homeData.about.sectorsTitle && (
+                      <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-6">
+                        {homeData.about.sectorsTitle}
+                      </h3>
+                    )}
+                    <div className="space-y-3">
+                      {homeData.about.sectors?.map((sector: string) => (
+                        <div
+                          key={sector}
+                          className="flex items-center gap-4 border-l-4 border-primary bg-background/50 p-5"
+                        >
+                          <span className="text-base font-bold uppercase tracking-widest text-white">
+                            {sector}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Container>
+          </section>
+        )}
+
         {/* Featured Projects */}
         <section className="bg-background py-32">
           <Container>
@@ -84,6 +142,33 @@ export default function Home() {
             </div>
           </Container>
         </section>
+
+        {/* Video Banner */}
+        {homeData.videoBanner?.published && (
+          <VideoBanner
+            videoUrl={homeData.videoBanner.videoUrl}
+            overlayText={homeData.videoBanner.overlayText}
+          />
+        )}
+
+        {/* Service Offerings Accordion */}
+        {homeData.serviceOfferings && homeData.serviceOfferings.length > 0 && (
+          <section className="bg-background py-24 md:py-32">
+            <Container>
+              <div className="mb-12 text-center">
+                <span className="text-xs font-black uppercase tracking-widest text-primary mb-2 block">
+                  What We Offer
+                </span>
+                <h2 className="text-4xl font-black uppercase tracking-tight text-white md:text-5xl">
+                  Our Services
+                </h2>
+              </div>
+              <div className="max-w-4xl mx-auto">
+                <ServiceAccordion items={homeData.serviceOfferings} />
+              </div>
+            </Container>
+          </section>
+        )}
 
         {/* Services / Local Focus */}
         <section className="border-y border-muted bg-muted py-32">
@@ -142,3 +227,4 @@ export default function Home() {
     </div>
   );
 }
+
