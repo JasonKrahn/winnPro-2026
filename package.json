@@ -6,6 +6,7 @@
     "dev": "next dev",
     "cms": "npx decap-server",
     "dev:all": "npm run dev & npm run cms",
+    "cms-pull": "git pull && echo '\n=== CMS Updates Pulled ===\n' && git diff HEAD@{1} HEAD --name-status",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
