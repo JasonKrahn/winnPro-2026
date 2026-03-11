@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  use_large_media_url_in_cms: false
 
 local_backend: true
 
@@ -8,6 +9,7 @@ publish_mode: editorial_workflow
 
 media_folder: "public/images"
 public_folder: "/images"
+display_url: "https://winnpro.netlify.app"
 
 collections:
   - name: "pages"
