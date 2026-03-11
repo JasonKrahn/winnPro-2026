@@ -62,6 +62,7 @@ export function getProjectBySlug(slug: string): Project {
 export function getAllProjects(): Project[] {
     const slugs = getProjectSlugs();
     const projects = slugs.map((slug) => getProjectBySlug(slug))
+        .filter((project) => project.status !== 'Draft')
         .sort((a, b) => (new Date(b.date) > new Date(a.date) ? 1 : -1));
     return projects;
 }
