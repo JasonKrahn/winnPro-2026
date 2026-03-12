@@ -1,7 +1,7 @@
 ---
 template: SinglePost
 title: Liquor Mart-Lac Du Bonnet
-status: Draft
+status: Published
 date: 2026-03-12T10:58:00.000-05:00
 featuredImage: /images/ldb.jpeg
 completed: November 1 2026
