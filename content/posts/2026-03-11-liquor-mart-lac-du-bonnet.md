@@ -10,6 +10,7 @@ categories:
   - category: Commercial Renovations
 gallery:
   - image: /images/ee2c835f-d67c-44ee-83bb-7dcd22f8dfbd.jpeg
+  - image: /images/ldb3.jpeg
 meta:
   description: Re-Model of existing store including  warehouse space, washrooms,
     offices, walk-in cooler and retail space
