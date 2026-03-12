@@ -1,7 +1,7 @@
 ---
 template: SinglePost
 title: Tuxedo Park Shopping Centre-Basement Renovation
-status: Draft
+status: Published
 date: 2026-03-12T13:38:00.000-05:00
 featuredImage: /images/img_2025_09_11_14_58_53_942.jpg
 budget: 700,000
