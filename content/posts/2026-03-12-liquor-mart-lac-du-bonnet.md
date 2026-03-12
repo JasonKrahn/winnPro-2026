@@ -14,6 +14,8 @@ gallery:
   - image: /images/ldb2.jpeg
   - image: /images/ldb4.jpeg
   - image: /images/ldb3.jpeg
+  - image: /images/img_2025_03_11_14_30_00_720.jpg
+    title: Before
 meta:
   title: Liquor Mart Lac Du Bonnet
   description: "Complete Re-model including new warehouse space, washrooms,
