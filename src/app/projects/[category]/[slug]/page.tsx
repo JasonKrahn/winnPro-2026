@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-    const { slug } = await params;
+    const { slug, category: urlCategory } = await params;
 
     if (!slug) notFound();
 
@@ -79,7 +79,7 @@ export default async function ProjectDetailPage({ params }: Props) {
     // Sanitize the HTML to prevent XSS attacks
     const sanitizedHtml = sanitizeHtml(markdownToHtml(project.content));
     
-    const category = (params.category) || (project.categories?.[0]?.category || 'general').toLowerCase().replace(/\s+/g, '-');
+    const category = urlCategory || (project.categories?.[0]?.category || 'general').toLowerCase().replace(/\s+/g, '-');
 
     return (
         <div className="flex min-h-screen flex-col">

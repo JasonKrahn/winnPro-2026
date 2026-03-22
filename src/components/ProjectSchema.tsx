@@ -5,7 +5,7 @@ interface ProjectSchemaProps {
         title: string;
         slug: string;
         featuredImage: string;
-        completed: string;
+        completed?: string;
         architect?: string;
         categories: { category: string }[];
     };

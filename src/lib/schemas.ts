@@ -9,7 +9,7 @@ export function generateProjectSchema(
         title: string;
         slug: string;
         featuredImage: string;
-        completed: string;
+        completed?: string;
         architect?: string;
         categories: { category: string }[];
     },
@@ -31,7 +31,7 @@ export function generateProjectSchema(
         datePublished: project.completed,
         inLanguage: 'en-CA',
         isPartOf: {
-            '@type': 'Website',
+            '@type': 'WebSite',
             name: 'WinnPro Construction',
             url: siteUrl,
         },

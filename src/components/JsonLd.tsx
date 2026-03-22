@@ -42,7 +42,7 @@ export default function JsonLd() {
                 '@type': 'Region',
                 name: 'Midwestern Canada',
             },
-        ],
+        ] as any,
         knowsAbout: [
             'Commercial Construction',
             'Industrial Retrofits',
