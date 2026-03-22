@@ -9,10 +9,12 @@ export default function JsonLd() {
         '@context': 'https://schema.org',
         '@type': ['ConstructionBusiness', 'GeneralContractor', 'LocalBusiness'] as any,
         name: 'WinnPro Construction',
-        image: `${siteUrl}/logo.png`,
+        alternateName: ['WinnPro', 'Winn Pro Construction'],
+        image: `${siteUrl}/images/og-image.jpg`,
         '@id': siteUrl,
         url: siteUrl,
-        telephone: settings?.phone || '',
+        telephone: settings?.phone || '(204) 989-5941',
+        email: 'info@winnproconstruction.ca',
         priceRange: '$$$$',
         address: {
             '@type': 'PostalAddress',
@@ -27,18 +29,29 @@ export default function JsonLd() {
             latitude: 49.8951,
             longitude: -97.1384,
         },
-        areaServed: {
-            '@type': 'City',
-            name: settings?.city || 'Winnipeg',
-            '@id': 'https://en.wikipedia.org/wiki/Winnipeg'
-        },
+        areaServed: [
+            {
+                '@type': 'City',
+                name: 'Winnipeg',
+            },
+            {
+                '@type': 'Region',
+                name: 'Manitoba',
+            },
+            {
+                '@type': 'Region',
+                name: 'Midwestern Canada',
+            },
+        ],
         knowsAbout: [
             'Commercial Construction',
             'Industrial Retrofits',
             'Retail Space Construction',
             'Office Building Development',
             'General Contracting',
-            'Tenant Improvements'
+            'Tenant Improvements',
+            'Interior Renovations',
+            'Shopping Centre Construction',
         ],
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
@@ -53,13 +66,22 @@ export default function JsonLd() {
             closes: '17:00',
         },
         sameAs: [],
-        description: settings?.description || "Winnipeg's premier commercial construction contractors.",
+        description: settings?.description || "WinnPro Construction is Winnipeg's premier commercial and industrial general contractor, specializing in retail, office, and industrial retrofits.",
+        foundingDate: '2010',
+        contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'Customer Service',
+            telephone: settings?.phone || '(204) 989-5941',
+            email: 'info@winnproconstruction.ca',
+            availableLanguage: ['en-CA'],
+        },
     };
 
     return (
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            suppressHydrationWarning
         />
     );
 }

@@ -10,9 +10,11 @@ interface ButtonProps {
     onClick?: () => void;
     variant?: "primary" | "secondary" | "outline";
     className?: string;
+    type?: "button" | "submit" | "reset";
+    disabled?: boolean;
 }
 
-export default function Button({ children, href, onClick, variant = "primary", className = "" }: ButtonProps) {
+export default function Button({ children, href, onClick, variant = "primary", className = "", type = "button", disabled = false }: ButtonProps) {
     const baseStyles = "inline-flex items-center justify-center px-8 py-3 font-bold uppercase tracking-[0.15em] transition-all duration-300 transform shadow-md hover:shadow-xl";
 
     const variants = {
@@ -21,16 +23,17 @@ export default function Button({ children, href, onClick, variant = "primary", c
         outline: "bg-transparent text-white border-2 border-white hover:bg-white hover:text-black hover:shadow-lg",
     };
 
-    const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
+    const disabledStyles = disabled ? "opacity-50 cursor-not-allowed hover:shadow-md hover:scale-100" : "";
+    const combinedClassName = `${baseStyles} ${variants[variant]} ${disabledStyles} ${className}`;
 
     if (href) {
         return (
             <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={!disabled ? { scale: 1.02 } : {}}
+                whileTap={!disabled ? { scale: 0.98 } : {}}
                 className="inline-block"
             >
-                <Link href={href} prefetch={false} className={combinedClassName}>
+                <Link href={href} prefetch={false} className={combinedClassName} onClick={(e) => disabled && e.preventDefault()}>
                     {children}
                 </Link>
             </motion.div>
@@ -39,11 +42,12 @@ export default function Button({ children, href, onClick, variant = "primary", c
 
     return (
         <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={!disabled ? { scale: 1.02 } : {}}
+            whileTap={!disabled ? { scale: 0.98 } : {}}
             onClick={onClick}
             className={combinedClassName}
-            type="button"
+            type={type}
+            disabled={disabled}
         >
             {children}
         </motion.button>

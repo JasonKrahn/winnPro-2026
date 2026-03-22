@@ -4,10 +4,31 @@ import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 type Props = {
     searchParams: Promise<{ category?: string }>;
 };
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { category } = await searchParams;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://winnproconstruction.ca';
+  const categoryName = category ? category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'All Projects';
+  
+  return {
+    title: `Our Projects | WinnPro Construction`,
+    description: `Browse our portfolio of commercial and industrial construction projects in Winnipeg, including ${categoryName} work.`,
+    alternates: {
+      canonical: `/projects${category ? `?category=${category}` : ''}`,
+    },
+    openGraph: {
+      title: `Our Projects | WinnPro Construction`,
+      description: `Portfolio of commercial and industrial construction projects in Winnipeg.`,
+      url: `${siteUrl}/projects${category ? `?category=${category}` : ''}`,
+      type: 'website',
+    },
+  };
+}
 
 export default async function ProjectsPage({ searchParams }: Props) {
     const { category } = await searchParams;

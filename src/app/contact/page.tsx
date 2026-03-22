@@ -2,7 +2,23 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
+import ProtectedEmail from "@/components/ProtectedEmail";
 import { getSiteSettings } from "@/lib/content";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Contact Us | WinnPro Construction',
+  description: 'Get in touch with WinnPro Construction. We\'re ready to discuss your commercial construction project in Winnipeg. Call or fill out our contact form.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: 'Contact Us | WinnPro Construction',
+    description: 'Contact WinnPro Construction for your commercial construction needs in Winnipeg.',
+    url: 'https://winnproconstruction.ca/contact',
+    type: 'website',
+  },
+};
 
 export default function ContactPage() {
     const settings = getSiteSettings();
@@ -38,7 +54,10 @@ export default function ContactPage() {
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Email</span>
-                                    <a href="mailto:info@winnproconstruction.ca" className="text-xl font-bold text-primary hover:underline transition-all underline-offset-4">info@winnproconstruction.ca</a>
+                                    <ProtectedEmail 
+                                        email="info@winnproconstruction.ca"
+                                        className="text-xl font-bold text-primary hover:underline transition-all underline-offset-4"
+                                    />
                                 </div>
                                 <div className="mt-12 h-1 w-20 bg-primary" />
                             </div>

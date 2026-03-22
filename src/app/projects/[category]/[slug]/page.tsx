@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectSchema from "@/components/ProjectSchema";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 export async function generateStaticParams() {
     const projects = getAllProjects();
@@ -18,6 +20,48 @@ export async function generateStaticParams() {
 type Props = {
     params: Promise<{ category: string; slug: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params;
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://winnproconstruction.ca';
+    
+    if (!slug) return {};
+    
+    try {
+        const project = getProjectBySlug(slug);
+        const category = (project.categories?.[0]?.category || 'general').toLowerCase().replace(/\s+/g, '-');
+        
+        return {
+            title: `${project.title} | WinnPro Construction - Commercial Contractor`,
+            description: project.meta?.description || `${project.title} - A commercial construction project completed by WinnPro Construction in Winnipeg, Manitoba.`,
+            alternates: {
+                canonical: `/projects/${category}/${slug}`,
+            },
+            openGraph: {
+                title: project.title,
+                description: project.meta?.description || `Commercial construction project: ${project.title}`,
+                url: `${siteUrl}/projects/${category}/${slug}`,
+                type: 'website',
+                images: [
+                    {
+                        url: `${siteUrl}${project.featuredImage}`,
+                        width: 1200,
+                        height: 630,
+                        alt: project.title,
+                    },
+                ],
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title: project.title,
+                description: project.meta?.description,
+                images: [`${siteUrl}${project.featuredImage}`],
+            },
+        };
+    } catch (e) {
+        return {};
+    }
+}
 
 export default async function ProjectDetailPage({ params }: Props) {
     const { slug } = await params;
@@ -34,9 +78,12 @@ export default async function ProjectDetailPage({ params }: Props) {
 
     // Sanitize the HTML to prevent XSS attacks
     const sanitizedHtml = sanitizeHtml(markdownToHtml(project.content));
+    
+    const category = (params.category) || (project.categories?.[0]?.category || 'general').toLowerCase().replace(/\s+/g, '-');
 
     return (
         <div className="flex min-h-screen flex-col">
+            <ProjectSchema project={project} category={category} />
             <Header />
 
             <main className="flex-grow">

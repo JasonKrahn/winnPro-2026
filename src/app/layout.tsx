@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Exo_2 } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
@@ -11,6 +11,13 @@ const exo2 = Exo_2({
 
 import { getSiteSettings } from "@/lib/content";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  colorScheme: "dark",
+  themeColor: "#70A762",
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const settings = getSiteSettings();
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://winnproconstruction.ca';
@@ -19,9 +26,22 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(siteUrl),
     title: settings?.title || "WinnPro Construction | Winnipeg Commercial Contractors",
     description: settings?.description || "WinnPro Construction is a leading commercial and industrial general contractor in Winnipeg.",
-    keywords: ["Winnipeg Commercial Construction", "Industrial Contractors Manitoba", "Retail Build-Outs", "General Contractor Winnipeg", "WinnPro"],
+    keywords: ["Winnipeg Commercial Construction", "Industrial Contractors Manitoba", "Retail Build-Outs", "General Contractor Winnipeg", "WinnPro", "Commercial Renovations", "Construction Services"],
+    authors: [{ name: 'WinnPro Construction' }],
+    creator: 'WinnPro Construction',
+    publisher: 'WinnPro Construction',
+    formatDetection: {
+      telephone: true,
+    },
     alternates: {
       canonical: '/',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
     openGraph: {
       title: settings?.title || 'WinnPro Construction | Expert Commercial Contractors',
@@ -30,10 +50,11 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'WinnPro Construction',
       images: [
         {
-          url: `${siteUrl}/logo.png`,
+          url: `${siteUrl}/images/og-image.jpg`,
           width: 1200,
           height: 630,
-          alt: 'WinnPro Construction Logo',
+          alt: 'WinnPro Construction - Commercial & Industrial Contractors',
+          type: 'image/jpeg',
         },
       ],
       locale: 'en_CA',
@@ -43,6 +64,16 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: settings?.title || 'WinnPro Construction',
       description: settings?.description || 'Commercial & Industrial General Contractors in Winnipeg',
+      images: [`${siteUrl}/images/og-image.jpg`],
+    },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+    },
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'black-translucent',
+      title: 'WinnPro Construction',
     },
   };
 }
