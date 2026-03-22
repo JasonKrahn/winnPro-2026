@@ -33,11 +33,17 @@ export default function ContactForm() {
                 return;
             }
 
+            // Safely serialize FormData to URLSearchParams
+            const params = new URLSearchParams();
+            formData.forEach((value, key) => {
+                params.append(key, value.toString());
+            });
+
             // Submit to Netlify Forms endpoint
             const response = await fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData as any).toString(),
+                body: params.toString(),
             });
 
             if (response.ok || response.status === 301 || response.status === 302) {
@@ -64,6 +70,8 @@ export default function ContactForm() {
             <form
                 name="contact"
                 method="POST"
+                data-netlify="true"
+                netlify-honeypot="website"
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-6"
             >
