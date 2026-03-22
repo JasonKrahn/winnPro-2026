@@ -30,7 +30,7 @@ export default function Header() {
             <div className="container mx-auto flex h-20 items-center justify-between px-6 relative z-50">
                 <Link href="/" prefetch={false} className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/logo.png" alt="WinnPro Logo" className="h-10 w-auto" />
+                    <img src="/logo.png" alt="WinnPro Logo" width={160} height={40} className="h-10 w-auto" />
                     <div className="hidden flex-col font-black uppercase leading-none md:flex">
                         <span className="text-xl tracking-tight text-white group-hover:text-primary transition-colors">WinnPro</span>
                         <span className="text-[10px] tracking-[0.2em] text-primary">Construction</span>

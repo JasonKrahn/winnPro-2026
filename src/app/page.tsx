@@ -222,6 +222,8 @@ export default function Home() {
               <img
                 src="/core-and-procore.jpg"
                 alt="CORE and Procore Certified"
+                width={256}
+                height={64}
                 className="max-h-full w-auto object-contain"
               />
             </div>

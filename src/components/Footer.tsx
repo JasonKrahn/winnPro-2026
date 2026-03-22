@@ -9,7 +9,7 @@ export default function Footer() {
                     {/* Brand Info */}
                     <div className="flex flex-col gap-6 md:col-span-2">
                         <Link href="/" prefetch={false} className="flex items-center gap-2">
-                            <img src="/logo.png" alt="WinnPro Logo" className="h-10 w-auto" />
+                            <img src="/logo.png" alt="WinnPro Logo" width={160} height={40} className="h-10 w-auto" />
                             <div className="flex flex-col font-black uppercase leading-none">
                                 <span className="text-xl tracking-tight text-white">WinnPro</span>
                                 <span className="text-[10px] tracking-[0.2em] text-primary">Construction</span>
