@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Button from "./Button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { CheckCircle, AlertCircle } from "lucide-react";
 
 export default function ContactForm() {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [message, setMessage] = useState("");
+    const formRef = useRef<HTMLFormElement>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -32,14 +33,14 @@ export default function ContactForm() {
                 return;
             }
 
-            // Submit to Netlify
+            // Submit to Netlify Forms endpoint
             const response = await fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(formData as any).toString(),
             });
 
-            if (response.ok) {
+            if (response.ok || response.status === 301 || response.status === 302) {
                 setStatus("success");
                 setMessage("Thank you! We've received your message and will get back to you soon.");
                 form.reset();
