@@ -25,18 +25,18 @@ export default function ServiceAccordion({ items }: ServiceAccordionProps) {
                 return (
                     <div
                         key={item.title}
-                        className="bg-[#f5f6f8] rounded-lg overflow-hidden transition-all duration-300"
+                        className="border-l-4 border-primary bg-muted overflow-hidden transition-all duration-300"
                     >
                         <button
                             onClick={() => toggle(index)}
-                            className="w-full flex items-center justify-between px-8 py-6 text-left cursor-pointer group"
+                            className="w-full flex items-center justify-between px-8 py-6 text-left cursor-pointer group hover:bg-background/50 transition-colors"
                             aria-expanded={isOpen}
                         >
-                            <span className="text-sm md:text-base font-black uppercase tracking-widest text-[#2a2d35]">
+                            <span className="text-sm md:text-base font-black uppercase tracking-widest text-white">
                                 {item.title}
                             </span>
                             <svg
-                                className={`w-5 h-5 text-[#2a2d35] transition-transform duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""
+                                className={`w-5 h-5 text-primary transition-transform duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""
                                     }`}
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ export default function ServiceAccordion({ items }: ServiceAccordionProps) {
                                 }`}
                         >
                             <div className="overflow-hidden">
-                                <p className="px-8 pb-6 text-[#4a4f5c] leading-relaxed text-[15px]">
+                                <p className="px-8 pb-6 text-secondary leading-relaxed text-[15px]">
                                     {item.description}
                                 </p>
                             </div>

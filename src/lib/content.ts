@@ -9,6 +9,11 @@ export function markdownToHtml(markdown: string): string {
 
 const contentDirectory = path.join(process.cwd(), 'content');
 
+// Validate content directory exists on module load
+if (!fs.existsSync(contentDirectory)) {
+    throw new Error(`Content directory not found at ${contentDirectory}`);
+}
+
 export interface Project {
     slug: string;
     title: string;
@@ -112,7 +117,16 @@ export interface SiteSettings {
 
 export function getSiteSettings(): SiteSettings | null {
     const fullPath = path.join(contentDirectory, 'settings', 'site.json');
-    if (!fs.existsSync(fullPath)) return null;
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    return JSON.parse(fileContents);
+    if (!fs.existsSync(fullPath)) {
+        console.warn('Site settings file not found at:', fullPath);
+        return null;
+    }
+    
+    try {
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        return JSON.parse(fileContents);
+    } catch (error) {
+        console.error('Error parsing site.json:', error);
+        return null;
+    }
 }

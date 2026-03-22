@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #050505;
   --foreground: #ffffff;
@@ -7,6 +11,7 @@
   --secondary: #8E9BAB;
   --muted: #1F1F1F;
   --accent: #E0E0E0;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @theme inline {
@@ -35,4 +40,47 @@ body {
 .industrial-grid {
   background-image: radial-gradient(var(--muted) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+/* Decorative accent lines */
+.eyebrow-accent::before,
+.eyebrow-accent::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--primary);
+}
+
+.eyebrow-accent::before {
+  margin-right: 1rem;
+}
+
+.eyebrow-accent::after {
+  margin-left: 1rem;
+}
+
+/* Smooth transitions */
+* {
+  transition-timing-function: var(--transition-smooth);
+}
+
+/* Enhanced link underlines */
+a[href*="#"] {
+  position: relative;
+}
+
+/* Subtle text shadows for depth */
+.text-shadow-sm {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Card enhancement with subtle depth */
+.card-elegant {
+  transition: all 300ms var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-elegant:hover {
+  box-shadow: 0 20px 40px rgba(112, 167, 98, 0.15);
+  transform: translateY(-2px);
 }

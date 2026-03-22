@@ -4,6 +4,9 @@ interface VideoBannerProps {
 }
 
 export default function VideoBanner({ videoUrl, overlayText }: VideoBannerProps) {
+    // Convert .mov to .mp4 if needed (ensure universal browser compatibility)
+    const videoSrc = videoUrl.includes('.mov') ? videoUrl.replace(/\.mov$/i, '.mp4') : videoUrl;
+
     return (
         <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden">
             {/* Full-bleed video */}
@@ -14,11 +17,13 @@ export default function VideoBanner({ videoUrl, overlayText }: VideoBannerProps)
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
             >
-                <source src={videoUrl} type="video/mp4" />
+                <source src={videoSrc} type="video/mp4" />
+                <source src={videoUrl} type="video/quicktime" />
+                Your browser does not support the video tag.
             </video>
 
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/55" />
+            <div className="absolute inset-0 bg-black/35" />
 
             {/* Overlay text */}
             <div className="relative z-10 flex items-center justify-center h-full px-6">

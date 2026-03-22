@@ -15,7 +15,7 @@ export default async function ProjectsPage({ searchParams }: Props) {
     const categories = getAllCategories();
 
     const filteredProjects = category
-        ? allProjects.filter(p => p.categories.some(c => c.category.toLowerCase().replace(/\s+/g, '-') === category))
+        ? allProjects.filter(p => (p.categories || []).some(c => c.category.toLowerCase().replace(/\s+/g, '-') === category))
         : allProjects;
 
     return (

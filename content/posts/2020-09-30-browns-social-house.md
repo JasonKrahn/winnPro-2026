@@ -21,8 +21,13 @@ gallery:
     alt: Finishing work on interior of Browns Social House
     title: Finishing
 meta:
-  description: "WinnPro Construction built Browns Social House on Portage Avenue,
-    Winnipeg. "
+  description: WinnPro Construction built Browns Social House on Portage Avenue, Winnipeg.
   title: Browns Social House
 ---
-#### Browns Social House
+#### Project Overview
+
+WinnPro Construction successfully completed a comprehensive renovation of Browns Social House, enhancing the interior finishes and updating the space for optimal customer experience.
+
+#### Results
+
+The project was completed on schedule, delivering a modern and inviting dining environment that exceeded client expectations.

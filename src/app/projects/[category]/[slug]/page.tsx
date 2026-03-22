@@ -1,4 +1,5 @@
 import { getProjectBySlug, getAllProjects, markdownToHtml } from "@/lib/content";
+import { sanitizeHtml } from "@/lib/sanitize";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
@@ -31,6 +32,9 @@ export default async function ProjectDetailPage({ params }: Props) {
         notFound();
     }
 
+    // Sanitize the HTML to prevent XSS attacks
+    const sanitizedHtml = sanitizeHtml(markdownToHtml(project.content));
+
     return (
         <div className="flex min-h-screen flex-col">
             <Header />
@@ -61,12 +65,9 @@ export default async function ProjectDetailPage({ params }: Props) {
                     <Container>
                         <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
                             <div className="lg:col-span-2">
-                                <h3 className="mb-6 text-xs font-black uppercase tracking-[0.4em] text-white underline decoration-primary decoration-4 underline-offset-8">
-                                    Project Overview
-                                </h3>
                                 <div
-                                    className="prose prose-invert max-w-none text-secondary leading-loose"
-                                    dangerouslySetInnerHTML={{ __html: markdownToHtml(project.content) }}
+                                    className="prose prose-invert max-w-none text-secondary leading-loose [&>h4]:text-white [&>h4]:text-lg [&>h4]:font-black [&>h4]:uppercase [&>h4]:mb-6 [&>h4]:mt-12 [&>h4]:pt-6 [&>h4]:border-t [&>h4]:border-muted [&>h4]:underline [&>h4]:decoration-primary [&>h4]:decoration-4 [&>h4]:underline-offset-8 [&>h4:first-of-type]:mt-0 [&>h4:first-of-type]:pt-0 [&>h4:first-of-type]:border-t-0"
+                                    dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
                                 />
                             </div>
 
@@ -109,6 +110,21 @@ export default async function ProjectDetailPage({ params }: Props) {
                         </Container>
                     </section>
                 )}
+
+                {/* Back to Projects */}
+                <section className="py-20 bg-background">
+                    <Container>
+                        <div className="flex justify-center">
+                            <a
+                                href="/projects"
+                                className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-primary hover:text-white transition-colors group"
+                            >
+                                <span className="transform group-hover:translate-x-1 transition-transform duration-300">←</span>
+                                Back to All Projects
+                            </a>
+                        </div>
+                    </Container>
+                </section>
             </main>
 
             <Footer />

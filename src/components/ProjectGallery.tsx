@@ -74,7 +74,7 @@ export default function ProjectGallery({ items }: ProjectGalleryProps) {
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span className="text-xs font-black uppercase tracking-[0.3em] text-white bg-background/80 px-4 py-2 backdrop-blur-sm">View Full</span>
                         </div>
                         {item.title && (

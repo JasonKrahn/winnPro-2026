@@ -76,9 +76,9 @@ collections:
       - { label: "Status", name: "status", widget: "select", options: ["Published", "Draft"] }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "featuredImage", widget: "image" }
-      - { label: "Budget", name: "budget", widget: "string", required: false }
-      - { label: "Completed Date", name: "completed", widget: "string", required: false }
-      - { label: "Architect", name: "architect", widget: "string", required: false }
+      - { label: "Budget", name: "budget", widget: "string" }
+      - { label: "Completed Date", name: "completed", widget: "string", hint: "e.g., August 2019, June 2018, or 2019-08" }
+      - { label: "Architect", name: "architect", widget: "string" }
       - label: "Categories"
         name: "categories"
         widget: "list"

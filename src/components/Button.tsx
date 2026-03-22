@@ -13,27 +13,27 @@ interface ButtonProps {
 }
 
 export default function Button({ children, href, onClick, variant = "primary", className = "" }: ButtonProps) {
-    const baseStyles = "inline-flex items-center justify-center px-8 py-3 font-bold uppercase tracking-widest transition-all duration-300 transform";
+    const baseStyles = "inline-flex items-center justify-center px-8 py-3 font-bold uppercase tracking-[0.15em] transition-all duration-300 transform shadow-md hover:shadow-xl";
 
     const variants = {
-        primary: "bg-primary text-background hover:bg-white industrial-border",
-        secondary: "bg-secondary text-background hover:bg-white industrial-border",
-        outline: "bg-transparent text-white border-2 border-white hover:bg-white hover:text-black",
+        primary: "bg-primary text-background hover:bg-white industrial-border hover:scale-105",
+        secondary: "bg-secondary text-background hover:bg-white industrial-border hover:scale-105",
+        outline: "bg-transparent text-white border-2 border-white hover:bg-white hover:text-black hover:shadow-lg",
     };
 
     const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
 
     if (href) {
         return (
-            <Link href={href} prefetch={false}>
-                <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={combinedClassName}
-                >
+            <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block"
+            >
+                <Link href={href} prefetch={false} className={combinedClassName}>
                     {children}
-                </motion.button>
-            </Link>
+                </Link>
+            </motion.div>
         );
     }
 
@@ -43,6 +43,7 @@ export default function Button({ children, href, onClick, variant = "primary", c
             whileTap={{ scale: 0.98 }}
             onClick={onClick}
             className={combinedClassName}
+            type="button"
         >
             {children}
         </motion.button>

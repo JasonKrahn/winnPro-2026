@@ -13,9 +13,10 @@ import { getSiteSettings } from "@/lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = getSiteSettings();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://winnproconstruction.ca';
 
   return {
-    metadataBase: new URL('https://winnproconstruction.ca'),
+    metadataBase: new URL(siteUrl),
     title: settings?.title || "WinnPro Construction | Winnipeg Commercial Contractors",
     description: settings?.description || "WinnPro Construction is a leading commercial and industrial general contractor in Winnipeg.",
     keywords: ["Winnipeg Commercial Construction", "Industrial Contractors Manitoba", "Retail Build-Outs", "General Contractor Winnipeg", "WinnPro"],
@@ -25,11 +26,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: settings?.title || 'WinnPro Construction | Expert Commercial Contractors',
       description: settings?.description || "Winnipeg's top choice for high-performance commercial and industrial construction.",
-      url: 'https://winnproconstruction.ca',
+      url: siteUrl,
       siteName: 'WinnPro Construction',
       images: [
         {
-          url: '/logo.png',
+          url: `${siteUrl}/logo.png`,
           width: 1200,
           height: 630,
           alt: 'WinnPro Construction Logo',

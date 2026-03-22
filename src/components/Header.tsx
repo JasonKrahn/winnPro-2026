@@ -1,15 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
+
+    // Focus management for mobile menu
+    useEffect(() => {
+        if (isMobileMenuOpen && menuRef.current) {
+            // Trap focus in menu
+            const focusableElements = menuRef.current.querySelectorAll(
+                'a, button, [tabindex]:not([tabindex="-1"])'
+            );
+            if (focusableElements.length > 0) {
+                (focusableElements[0] as HTMLElement).focus();
+            }
+        }
+    }, [isMobileMenuOpen]);
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-muted bg-background/80 backdrop-blur-md">
@@ -27,6 +41,9 @@ export default function Header() {
                 <nav className="hidden items-center gap-8 md:flex">
                     <Link href="/projects" prefetch={false} className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                         Projects
+                    </Link>
+                    <Link href="/#services" prefetch={false} className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                        Services
                     </Link>
                     <Link href="/contact" prefetch={false} className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                         Contact
@@ -54,7 +71,7 @@ export default function Header() {
 
             {/* Mobile Navigation Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-20 left-0 w-full bg-background border-b border-muted shadow-lg z-40">
+                <div ref={menuRef} className="md:hidden absolute top-20 left-0 w-full bg-background border-b border-muted shadow-lg z-[45]">
                     <nav className="flex flex-col px-6 py-6 gap-6">
                         <Link
                             href="/projects"
@@ -64,6 +81,20 @@ export default function Header() {
                         >
                             Projects
                         </Link>
+                        <a
+                            href="/#services"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setIsMobileMenuOpen(false);
+                                const element = document.getElementById('services');
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                            className="text-lg font-bold uppercase tracking-widest text-white hover:text-primary transition-colors cursor-pointer"
+                        >
+                            Services
+                        </a>
                         <Link
                             href="/contact"
                             prefetch={false}

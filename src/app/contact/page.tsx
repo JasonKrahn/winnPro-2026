@@ -2,8 +2,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
+import { getSiteSettings } from "@/lib/content";
 
 export default function ContactPage() {
+    const settings = getSiteSettings();
     return (
         <div className="flex min-h-screen flex-col">
             <Header />
@@ -27,6 +29,12 @@ export default function ContactPage() {
                                 <div className="flex flex-col gap-2">
                                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Location</span>
                                     <p className="text-xl font-bold text-white">Winnipeg, MB, Canada</p>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Phone</span>
+                                    <a href={`tel:${settings?.phone}`} className="text-xl font-bold text-primary hover:underline transition-all underline-offset-4">
+                                        {settings?.phone || "(204) 989-5941"}
+                                    </a>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Email</span>

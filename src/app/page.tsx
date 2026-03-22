@@ -33,16 +33,17 @@ export default function Home() {
               priority
             />
             {/* Dialed back gradient for better visibility */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
-            <div className="absolute inset-0 industrial-grid opacity-40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-background/25 to-transparent" />
+            <div className="absolute inset-0 industrial-grid opacity-20" />
           </div>
 
           <Container className="relative z-10">
             <div className="max-w-4xl">
-              <span className="mb-4 block text-sm font-black uppercase tracking-[0.4em] text-primary">
+              <span className="mb-4 block text-sm font-black uppercase tracking-[0.4em] text-primary flex items-center gap-3">
+                <span className="h-0.5 w-3 bg-primary"></span>
                 {homeData.hero.eyebrow}
               </span>
-              <h1 className="mb-8 text-6xl font-black uppercase leading-none tracking-tight text-white md:text-8xl">
+              <h1 className="mb-8 text-6xl font-black uppercase leading-none tracking-tight text-white md:text-8xl text-shadow-sm" style={{textShadow: '0 4px 8px rgba(0,0,0,0.4)'}}>
                 {homeData.hero.title1} <br />
                 <span className="text-primary italic">{homeData.hero.title2}</span>
               </h1>
@@ -72,7 +73,8 @@ export default function Home() {
             <Container>
               <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-widest text-primary mb-2 block">
+                  <span className="text-xs font-black uppercase tracking-widest text-primary mb-2 block flex items-center gap-3">
+                    <span className="h-0.5 w-3 bg-primary"></span>
                     {homeData.about.eyebrow}
                   </span>
                   <h2 className="text-4xl font-black uppercase tracking-tight text-white md:text-5xl mb-8">
@@ -125,9 +127,12 @@ export default function Home() {
         {/* Featured Projects */}
         <section className="bg-background py-32">
           <Container>
-            <div className="mb-16 flex flex-col items-end justify-between gap-4 md:flex-row md:items-center">
+            <div className="mb-16 flex flex-col items-center md:items-end justify-between gap-4 md:flex-row">
               <div>
-                <span className="text-xs font-black uppercase tracking-widest text-primary">Portfolio</span>
+                <span className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-3 mb-2">
+                  <span className="h-0.5 w-3 bg-primary"></span>
+                  Portfolio
+                </span>
                 <h2 className="text-4xl font-black uppercase tracking-tight text-white md:text-5xl">Featured Works</h2>
               </div>
               <Button href="/projects" variant="outline" className="px-6 py-2 text-xs">
@@ -153,11 +158,13 @@ export default function Home() {
 
         {/* Service Offerings Accordion */}
         {homeData.serviceOfferings && homeData.serviceOfferings.length > 0 && (
-          <section className="bg-background py-24 md:py-32">
+          <section id="services" className="bg-background py-24 md:py-32">
             <Container>
               <div className="mb-12 text-center">
-                <span className="text-xs font-black uppercase tracking-widest text-primary mb-2 block">
+                <span className="text-xs font-black uppercase tracking-widest text-primary mb-2 block flex items-center justify-center gap-3">
+                  <span className="h-0.5 w-3 bg-primary"></span>
                   What We Offer
+                  <span className="h-0.5 w-3 bg-primary"></span>
                 </span>
                 <h2 className="text-4xl font-black uppercase tracking-tight text-white md:text-5xl">
                   Our Services
@@ -175,9 +182,9 @@ export default function Home() {
           <Container>
             <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
               <div>
-                <h2 className="mb-8 text-4xl font-black uppercase tracking-tight text-white">
+                <h2 className="mb-8 text-4xl font-black uppercase tracking-tight text-white leading-tight">
                   {homeData.services.title1} <br />
-                  <span className="text-primary">{homeData.services.title2}</span>
+                  <span className="text-primary text-shadow-sm" style={{textShadow: '0 2px 8px rgba(112, 167, 98, 0.3)'}}>{homeData.services.title2}</span>
                 </h2>
                 <p className="mb-8 text-lg text-secondary italic">
                   {homeData.services.subtitle}
@@ -198,8 +205,7 @@ export default function Home() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-all duration-500 group-hover:bg-black/10">
                 </div>
               </div>
             </div>

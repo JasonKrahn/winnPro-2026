@@ -3,14 +3,15 @@ import { getSiteSettings } from '@/lib/content';
 
 export default function JsonLd() {
     const settings = getSiteSettings();
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://winnproconstruction.ca';
 
     const schema: WithContext<LocalBusiness> = {
         '@context': 'https://schema.org',
         '@type': ['ConstructionBusiness', 'GeneralContractor', 'LocalBusiness'] as any,
         name: 'WinnPro Construction',
-        image: 'https://winnproconstruction.ca/logo.png',
-        '@id': 'https://winnproconstruction.ca',
-        url: 'https://winnproconstruction.ca',
+        image: `${siteUrl}/logo.png`,
+        '@id': siteUrl,
+        url: siteUrl,
         telephone: settings?.phone || '',
         priceRange: '$$$$',
         address: {
