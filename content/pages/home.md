@@ -1,9 +1,9 @@
 ---
 template: HomePage
 hero:
-  eyebrow: Winnipeg Commercial Contractors
-  title1: Building The
-  title2: Modern North.
+  eyebrow: Winnipeg Commercial Building experts
+  title1: Quality Commercial
+  title2: Building Solutions.
   description: WinnPro Construction is Winnipeg's leading commercial and
     industrial general contractor. We deliver high-performance, precision
     building for Manitoba's robust commercial landscape, spanning retail
