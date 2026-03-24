@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Exo_2 } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 
@@ -92,6 +93,24 @@ export default function RootLayout({
         className={`${exo2.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-75LMKVKY0F`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-75LMKVKY0F', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
         <JsonLd />
         {children}
       </body>

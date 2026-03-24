@@ -43,7 +43,7 @@ export default function Home() {
                 <span className="h-0.5 w-3 bg-primary"></span>
                 {homeData.hero.eyebrow}
               </span>
-              <h1 className="mb-8 text-6xl font-black uppercase leading-none tracking-tight text-white md:text-8xl text-shadow-sm" style={{textShadow: '0 4px 8px rgba(0,0,0,0.4)'}}>
+              <h1 className="mb-8 text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-none tracking-tight text-white text-shadow-sm break-words" style={{textShadow: '0 4px 8px rgba(0,0,0,0.4)'}}>
                 {homeData.hero.title1} <br />
                 <span className="text-primary italic">{homeData.hero.title2}</span>
               </h1>
@@ -182,7 +182,7 @@ export default function Home() {
           <Container>
             <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
               <div>
-                <h2 className="mb-8 text-4xl font-black uppercase tracking-tight text-white leading-tight">
+                <h2 className="mb-8 text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white leading-tight break-words">
                   {homeData.services.title1} <br />
                   <span className="text-primary text-shadow-sm" style={{textShadow: '0 2px 8px rgba(112, 167, 98, 0.3)'}}>{homeData.services.title2}</span>
                 </h2>

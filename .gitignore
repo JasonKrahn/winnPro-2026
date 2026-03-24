@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+download-images.sh
 
 # next.js
 /.next/
