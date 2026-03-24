@@ -7,7 +7,7 @@ hero:
   description: WinnPro Construction is Winnipeg's leading commercial and
     industrial general contractor. We deliver high-performance, precision
     building for Manitoba's robust commercial landscape, spanning retail
-    developments, office spaces, and complex industrial retrofits.
+    developments, office spaces, and complex industrial builds and retrofits.
 about:
   eyebrow: About Us
   title: Who We Are
