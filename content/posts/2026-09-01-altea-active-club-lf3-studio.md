@@ -7,6 +7,8 @@ featuredImage: /images/201aa974-7795-47e3-894b-a9d43c3bbcbd.jpeg
 budget: 300,000
 completed: August 2026
 architect: RWA/Altea
+categories:
+  - category: Commercial Renovations
 gallery:
   - image: /images/1922b4d8-e4d4-4153-9bc4-0c4c4d209a79.jpeg
   - image: /images/5f1ead94-eb72-4fb5-81d4-d3800c3833a2.jpeg
